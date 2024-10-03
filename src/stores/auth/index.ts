@@ -36,7 +36,7 @@ const authSlice = createSlice({
       state.status = "success";
       state.user = action.payload?.user;
     });
-    builder.addCase(AuthThunk?.rejected.type, (state, action) => {
+    builder.addCase(AuthThunk?.rejected.type, (state) => {
       redirect("/signin");
       // localStorage.removeItem("access_token");
       state = {

@@ -1,12 +1,11 @@
 import {
   QueryObserverOptions,
   useQuery,
-  useQueryClient,
+  // useQueryClient,
 } from "@tanstack/react-query";
 import { QUERY_DATA } from "config/utils/setting";
 import { IBaseAllData } from "models/base";
 import { CLIENT_API } from "services/client.request";
-
 
 type TypeGetAllData = {
   queryKey: Array<string | number | undefined | any>;
@@ -20,7 +19,7 @@ const useGetCacheData = <T = any>({
   options,
   params,
 }: TypeGetAllData & Omit<QueryObserverOptions, "queryKey, queryFn">) => {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
   const response = useQuery<IBaseAllData<T>>({
     queryKey: [...queryKey],

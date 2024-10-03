@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-blue {
+    @apply border-0 bg-[#1890ff] hover:bg-[#1685ec] active:bg-[#067DEC] rounded-custom px-4 text-white py-[2px] disabled:cursor-not-allowed disabled:bg-[#7ABFFF];
+  }
+  .btn-green {
+    @apply border-0 bg-green-500 hover:bg-green-600 active:bg-green-600 rounded-custom px-4 text-white py-[2px] disabled:cursor-not-allowed disabled:bg-green-400;
+  }
+  .btn-white {
+    @apply border-0 bg-white hover:bg-gray-50 active:bg-gray-50 rounded-custom px-4 text-gray-600 py-[2px] disabled:cursor-not-allowed disabled:bg-gray-100;
+  }
+  .btn-link-blue {
+    @apply border-0 text-blue-500 bg-transparent hover:text-blue-600 rounded-custom px-4 py-[2px] disabled:cursor-not-allowed;
+  }
+
+  .btn-red {
+    @apply border-0 bg-red-600 hover:bg-red-500 active:bg-red-700 rounded-custom px-4 text-white py-[2px] disabled:cursor-not-allowed disabled:bg-red-300;
+  }
+  .btn-gray {
+    @apply border-0 bg-gray-200 hover:bg-gray-300 active:bg-gray-300 rounded-custom px-4 text-gray-500 py-[2px] disabled:cursor-not-allowed disabled:bg-gray-100;
+  }
+
+  .tag-green {
+    @apply inline-block min-w-max text-center bg-[#ddf9e6] rounded-custom text-green-600 py-1 px-2 text-xs tracking-wide;
+  }
+
+  .tag-red {
+    @apply inline-block min-w-max text-center bg-red-100 rounded-custom text-red-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .tag-blue {
+    @apply inline-block min-w-max text-center bg-blue-100 rounded-custom text-blue-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .tag-orange {
+    @apply inline-block min-w-max text-center bg-orange-100 rounded-custom text-orange-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .tag-gray {
+    @apply inline-block min-w-max text-center bg-gray-100 rounded-custom text-gray-600 py-1 px-2 text-xs tracking-wide disabled:cursor-not-allowed;
+  }
+
+  .btn-excel-export {
+    @apply bg-[#01C354]  hover:bg-[#01B951] active:bg-[#01A347] border-0 rounded-md text-white text-[13px] py-1 px-2 h-[30px] uppercase tracking-wide disabled:cursor-not-allowed;
+  }
+
+  /* survey page css */
+  .survey-variant-input {
+    @apply border-[1px] border-gray-300 border-t-0 border-r-0 border-l-0 focus:outline-none text-gray-600 text-sm;
+  }
+
+  .card {
+    @apply bg-white rounded-lg p-4;
+  }
+
+  .link {
+    @apply text-blue-500 hover:text-blue-400 hover:underline transition-colors;
+  }
+
+  .desc {
+    @apply text-gray-400 font-medium;
+  }
+}
+
+
+:root {
+  --header-height: 64px;
+  --sidebar-width-lg: 200px;
+  --sidebar-width-sm: 80px;
+}
+
+::-webkit-scrollbar {
+  width: 0.35rem;
+  height: 0.35rem;
+  &:hover {
+    width: 1rem !important;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d1d5db;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 0.35rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+.d-f {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.login-bg {
+  background-image: url(../assets/images/vite.svg);
+  background-position: center;
+  background-size: 60%;
+}
+
+.table-bordered > :not(caption) > * {
+  border-width: 1px 0;
+}
+.table thead,
+.table tbody,
+.table tfoot,
+.table tr,
+.table td,
+.table th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+.table thead,
+.table tbody,
+.table tfoot,
+.table tr,
+.table td,
+.table th {
+  border: 1px solid #eff2f7 !important;
+}

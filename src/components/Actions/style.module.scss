@@ -1,0 +1,36 @@
+
+
+.table_actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  vertical-align: middle;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border-radius: 50%;
+    cursor: pointer;
+    padding: 0 .275rem;
+    height: 26px;
+    font-size: 15px;
+  
+    color: #595959;
+    &:hover {
+      color: #262626;
+    }
+  }
+  
+  .delete {
+    color: #ff4d4f;
+    font-size: 14px;
+    &:hover {
+      color: #f5222d;
+    }
+  }
+}
+
+

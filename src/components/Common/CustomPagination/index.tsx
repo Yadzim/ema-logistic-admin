@@ -28,16 +28,18 @@ const CustomPagination: React.FC<TypeCustomPaginationProps> = React.memo(
     return (
       <div className="w-full flex-between gap-4 p-3">
         {/* <Tag color="#F2F2F2" style={{ color: "#494d52" }} className="px-3 h-[30px] flex-center text-[15px]"> */}
-          <span className="tag-gray" >Jami: &nbsp; {totalCount}</span>
+        <span className="tag-gray" >Jami: &nbsp; {totalCount}</span>
         {/* </Tag> */}
         <Pagination
           total={totalCount}
           current={(currentPage ?? value.currentPage) + 1}
           defaultPageSize={perPage ?? value.perPage}
           onChange={(e) => {
-            writeToUrl({ name: "currentPage", value: (e - 1)});
+            writeToUrl({ name: "currentPage", value: (e - 1) });
           }}
           onShowSizeChange={(e, pageSize) => {
+            console.log(e);
+
             writeToUrl({ name: "perPage", value: pageSize });
           }}
           showSizeChanger={showSizeChanger}

@@ -54,7 +54,7 @@ const Actions: React.FC<TypeActions> = ({ id, url, onView, onEdit, viewLink, edi
 
   const { mutate } = useMutation({
     mutationFn: () => delete_data(url, id),
-    onSuccess: (res) => {
+    onSuccess: () => {
       // toast.success(tMessage(res?.data?.message));
       refetch();
     },

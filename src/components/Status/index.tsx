@@ -1,22 +1,22 @@
 import { FC } from "react";
-import { Badge, Tag, Typography } from 'antd';
+import { Badge, Typography } from 'antd';
 // import "./style.scss";
 import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
 const BadgeStatus: FC<{ status: number | string }> = ({ status }): JSX.Element => {
-    const { i18n, t } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <>
-            {(status === 'A') ? <Badge count={t("Active")} style={{ backgroundColor: "#73d13d"}} className="active_badge" /> : <Badge count="InActive" style={{ backgroundColor: "#ff7875" }} />}
+            {(status === 'A') ? <Badge count={t("Active")} style={{ backgroundColor: "#73d13d" }} className="active_badge" /> : <Badge count="InActive" style={{ backgroundColor: "#ff7875" }} />}
         </>
     )
 }
 
 const BadgeStatusTag: FC<{ status: number | string }> = ({ status }): JSX.Element => {
-    const { i18n, t } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <>
@@ -28,7 +28,7 @@ const BadgeStatusTag: FC<{ status: number | string }> = ({ status }): JSX.Elemen
 
 
 const BadgeStatusText: FC<{ status: number | string }> = ({ status }): JSX.Element => {
-    const { i18n, t } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <>
@@ -39,11 +39,11 @@ const BadgeStatusText: FC<{ status: number | string }> = ({ status }): JSX.Eleme
 }
 
 const UserStatus: FC<{ status: string }> = ({ status }): JSX.Element => {
-    const { i18n, t } = useTranslation();
+    const { t } = useTranslation();
 
-    if(status === 'A') return <span className="tag-green">{t("Active")}</span>
+    if (status === 'A') return <span className="tag-green">{t("Active")}</span>
 
-    if(status === 'B') return <span className="tag-orange">{t("Blocked")}</span>
+    if (status === 'B') return <span className="tag-orange">{t("Blocked")}</span>
 
     return <span className="tag-red">{t("InActive")}</span>
 }

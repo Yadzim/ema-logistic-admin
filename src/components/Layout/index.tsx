@@ -1,10 +1,10 @@
-import { ReactElement, useEffect, useState } from "react"
-import { Layout as AntLayout, theme } from 'antd';
+import { ReactElement, useEffect } from "react"
+import { Layout as AntLayout } from 'antd';
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { useWindowSize } from "hooks";
 import { UI_ACTIONS } from "stores/ui";
-import { useAppDispatch, useAppSelector } from "stores";
+import { useAppDispatch } from "stores";
 const { Content } = AntLayout;
 
 type PropsTypeCLayout = {
@@ -14,7 +14,6 @@ type PropsTypeCLayout = {
 const Layout: React.FC<PropsTypeCLayout> = ({ children }): JSX.Element => {
 
     const dispatch = useAppDispatch();
-    const collapsed = useAppSelector(p => p.ui.collapsed);
     const { width } = useWindowSize();
 
     useEffect(() => {

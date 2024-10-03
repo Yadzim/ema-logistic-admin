@@ -119,10 +119,9 @@ const CustomPage: React.FC<CustomPagePropType> = ({
       },]) as ColumnsType<any>,
       {
         title: ("Actions"),
-        dataIndex: "actions",
         width: 120,
         align: "center",
-        render: (i, e: any) => (
+        render: (e: any) => (
           <Actions
             id={e?.id}
             url={url}

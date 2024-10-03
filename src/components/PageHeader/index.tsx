@@ -16,7 +16,7 @@ type THeaderProps = {
   hr?: boolean
 }
 
-const PageHeader: FC<THeaderProps> = ({ title, btn, breadCrumbData, isBack = false, menuType = "menu", className, backUrl, hr }): JSX.Element => {
+const PageHeader: FC<THeaderProps> = ({ title, btn, isBack = false, menuType = "menu", className, backUrl }): JSX.Element => {
   const navigate = useNavigate()
 
   return (

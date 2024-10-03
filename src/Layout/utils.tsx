@@ -1,6 +1,6 @@
 import { MenuProps } from "antd";
 import { NavLink } from "react-router-dom";
-import { protected_routes } from "../../routes/routes";
+import { protected_routes } from "routes/routes";
 
 function IconComponent(IconName: string) {
 
@@ -38,28 +38,28 @@ export const filterLinksForSidebar = (): MenuItem[] => {
                         })
                     }
                 })
-            }  
+            }
 
             // if (new_sub_element.length === 1) {
 
             //     sidebar_links.push(new_sub_element[0]);
 
             // } else {
-            
-                if (new_sub_element.length) {
-                    sidebar_links.push({
-                        key: `${parent_element.path}`,
-                        icon: IconComponent(parent_element.config.icon),
-                        children: new_sub_element,
-                        label: parent_element.name,
-                    });
-                } else {
-                    sidebar_links.push({
-                        key: `${parent_element.path}`,
-                        icon: IconComponent(parent_element.config.icon),
-                        label: <NavLink className='text-white' to={parent_element.path}>{parent_element.name}</NavLink>,
-                    });
-                }
+
+            if (new_sub_element.length) {
+                sidebar_links.push({
+                    key: `${parent_element.path}`,
+                    icon: IconComponent(parent_element.config.icon),
+                    children: new_sub_element,
+                    label: parent_element.name,
+                });
+            } else {
+                sidebar_links.push({
+                    key: `${parent_element.path}`,
+                    icon: IconComponent(parent_element.config.icon),
+                    label: <NavLink className='text-white' to={parent_element.path}>{parent_element.name}</NavLink>,
+                });
+            }
 
             // }
         }

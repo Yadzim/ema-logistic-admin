@@ -1,4 +1,4 @@
-import { Button, Col, Image, Modal, Row } from 'antd';
+import { Button, Col, Modal, Row } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CustomViewModalPropsType } from '../types';
@@ -25,7 +25,7 @@ const CustomViewModal: React.FC<CustomViewModalPropsType> = ({ title, open, setO
       className="user-info-modal"
       onCancel={() => { setOpen(undefined); setSelectedItem(undefined); }}
       footer={<div className='flex-between gap-3' >
-       { isTrue(selectedData?.state)  ? <div className='d-f gap-2' >{t("Status")}: <BadgeStatusTag status={selectedData?.state} /></div> : null}
+        {isTrue(selectedData?.state) ? <div className='d-f gap-2' >{t("Status")}: <BadgeStatusTag status={selectedData?.state} /></div> : null}
         {isRoles(roles.update) || roles.update === "*" ?
           <Button className='' type='primary' onClick={() => setOpen("form")}>{t("Update")}</Button> : null}
       </div>}
@@ -60,14 +60,14 @@ const CustomViewModal: React.FC<CustomViewModalPropsType> = ({ title, open, setO
                     <div className='flex-between gap-3'>
                       <b className='text-gray-400'>{t(e.label)}:</b>
                       <p className='m-0' >{
-                          e?.tableRender ?
-                            e?.tableRender(selectedData, selectedData, i)
-                            : selectedData ? e?.type === "select" ? (typeof selectedData[e?.name] === "string" || typeof selectedData[e?.name] === "number"
-                              ? selectedData[e?.name]
-                              : (selectedData[e?.name]?.name))
-                              : selectedData![e?.name]
-                              : null
-                        }</p>
+                        e?.tableRender ?
+                          e?.tableRender(selectedData, selectedData, i)
+                          : selectedData ? e?.type === "select" ? (typeof selectedData[e?.name] === "string" || typeof selectedData[e?.name] === "number"
+                            ? selectedData[e?.name]
+                            : (selectedData[e?.name]?.name))
+                            : selectedData![e?.name]
+                            : null
+                      }</p>
                     </div>
                     {/* <div className="input__content">
                       <p className="content__name">{t(e.label)}</p>

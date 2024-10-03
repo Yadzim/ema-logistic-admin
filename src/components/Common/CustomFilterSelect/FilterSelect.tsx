@@ -1,7 +1,7 @@
 import { Col, Select } from "antd";
 import { useGetCacheData, useUrlQueryParams } from "hooks";
 import { FC, ReactNode, useEffect } from "react";
-import { isRoles, cf_filterOption, generateAntdColSpan, isTrue, objectToQueryString } from "utils";
+import { isRoles, cf_filterOption, generateAntdColSpan, objectToQueryString } from "utils";
 
 export type TypeFilterSelectData<T = any> = {
   url?: string,

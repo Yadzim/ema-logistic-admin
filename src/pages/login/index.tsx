@@ -28,6 +28,7 @@ const Login = () => {
                             className="space-y-4 md:space-y-6"
                             action="#"
                             onFinish={onFinish}
+                            form={form}
                         >
                             <Form.Item
                                 name="username"

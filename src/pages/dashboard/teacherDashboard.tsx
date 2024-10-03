@@ -1,22 +1,22 @@
-import { Menu, Segmented } from 'antd';
-import React, { useState } from 'react';
+import { Segmented } from 'antd';
+import React from 'react';
 import { FaFileSignature } from 'react-icons/fa';
 import { FaCalendarDays, FaUsers } from 'react-icons/fa6';
 
-function findParents(items: any, key: string): string[] {
-  const search = (items: any, key: string, parents: string[]): string[] | null => {
-    for (let item of items) {
-      if (item.key === key) return parents;
-      if (item.children) {
-        const result = search(item.children, key, [...parents, item.key]);
-        if (result) return result;
-      }
-    }
-    return null;
-  };
+// function findParents(items: any, key: string): string[] {
+//   const search = (items: any, key: string, parents: string[]): string[] | null => {
+//     for (let item of items) {
+//       if (item.key === key) return parents;
+//       if (item.children) {
+//         const result = search(item.children, key, [...parents, item.key]);
+//         if (result) return result;
+//       }
+//     }
+//     return null;
+//   };
 
-  return search(items, key, []) ?? [];
-}
+//   return search(items, key, []) ?? [];
+// }
 
 const TeacherDashboard: React.FC = (): JSX.Element => {
 

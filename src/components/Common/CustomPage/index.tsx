@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input, Table } from "antd";
 import { ColumnsType } from "antd/es/table";
-import { expandData, formUIDataColums } from "./utils";
+import { formUIDataColums } from "./utils";
 import { CustomPagePropType } from "./types";
 import { FaSearch } from "react-icons/fa";
 import CustomViewModal from "./crud/viewModal";
@@ -12,7 +12,7 @@ import Actions from "components/Actions";
 import PageHeader from "components/PageHeader";
 import { CreateBtn } from "../CustomButton";
 import CustomFilterSelects from "../CustomFilterSelect";
-import BadgeStatus, { BadgeStatusTag } from "components/Status";
+import { BadgeStatusTag } from "components/Status";
 import { Link } from "react-router-dom";
 import CustomPagination from "../CustomPagination";
 

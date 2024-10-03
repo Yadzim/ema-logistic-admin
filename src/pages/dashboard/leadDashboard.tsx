@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 
 const LeadDashboard: React.FC = (): JSX.Element => {
 
   return (
     <div className="">
-      
+
     </div>
   );
 };

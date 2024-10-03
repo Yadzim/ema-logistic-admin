@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 
 const AdminDashboard: React.FC = (): JSX.Element => {
 
@@ -17,8 +17,8 @@ const AdminDashboard: React.FC = (): JSX.Element => {
         <div className="card h-96"></div>
       </div>
 
-      <div className="card h-72 mt-6"></div> 
-      
+      <div className="card h-72 mt-6"></div>
+
     </div>
   );
 };

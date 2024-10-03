@@ -1,5 +1,5 @@
 import { Dispatch, useEffect } from 'react'
-import { Drawer, Modal } from "antd";
+import { Modal } from "antd";
 import { FILE_URL } from 'config/utils';
 
 const VieWData = ({ open, setOpen, selectedItem, setselectedItem }: { open: boolean, setOpen: Dispatch<boolean>, selectedItem: any, setselectedItem: Dispatch<any> }) => {

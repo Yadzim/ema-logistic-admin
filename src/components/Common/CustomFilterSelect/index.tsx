@@ -1,5 +1,5 @@
 import { Row } from 'antd';
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import FilterSelect, { TypeFilterSelectData } from './FilterSelect';
 
 export type CustomFilterSelectsPropsType = {
@@ -10,13 +10,13 @@ export type CustomFilterSelectsPropsType = {
   extraEnd?: ReactNode,
 };
 
-const CustomFilterSelects: React.FC<CustomFilterSelectsPropsType> = ({data, gutter, className, extraStart, extraEnd}): JSX.Element => {
+const CustomFilterSelects: React.FC<CustomFilterSelectsPropsType> = ({ data, gutter, className, extraStart, extraEnd }): JSX.Element => {
 
   return (
     <Row className={`custom_form_style ${className}`} gutter={gutter ?? [12, 12]}>
       {extraStart}
       {
-        data?.map(selectData => <FilterSelect key={selectData?.name} {...selectData}/>)
+        data?.map(selectData => <FilterSelect key={selectData?.name} {...selectData} />)
       }
       {extraEnd}
     </Row>

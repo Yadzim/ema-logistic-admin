@@ -1,6 +1,5 @@
 import { ColumnsType } from "antd/es/table";
-import { CustomPagePropType, TypeCustomPageFormUIData } from "./types";
-import { Image } from "antd";
+import { TypeCustomPageFormUIData } from "./types";
 
 // create expand data from formUIData
 // export const expandData = (formUIData: CustomPagePropsType["formUIData"]) => {
@@ -65,7 +64,7 @@ export const formUIDataColums = (data: TypeCustomPageFormUIData[], t: any) => {
   const arr: ColumnsType<any> = [];
 
   data?.forEach(e => {
-    if(e?.show !== "form" && e?.show !== "view" && e?.show !== "form-and-view") {
+    if (e?.show !== "form" && e?.show !== "view" && e?.show !== "form-and-view") {
       if (e?.type === "select") {
         arr.push({
           title: t(e?.label),

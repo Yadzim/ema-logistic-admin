@@ -10,7 +10,7 @@ type TypeGetAllData = {
   params?: Record<string | number, any>;
   options?: QueryObserverOptions<any>;
 };
-const useGetOneData = <T = any>({
+const useGetOneData = ({
   queryKey,
   url,
   options,
@@ -22,7 +22,7 @@ const useGetOneData = <T = any>({
     ...options,
   });
 
-  return { ...response, ...response.data as IBaseOneData<T> };
+  return { ...response, ...(response.data as IBaseOneData) };
 };
 
 export default useGetOneData;

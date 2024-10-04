@@ -13,7 +13,7 @@ type TypeGetAllData = {
   params?: Record<string | number, any>;
   options?: QueryObserverOptions<any>;
 };
-const useGetCacheData = <T = any>({
+const useGetCacheData = ({
   queryKey,
   url,
   options,
@@ -21,7 +21,7 @@ const useGetCacheData = <T = any>({
 }: TypeGetAllData & Omit<QueryObserverOptions, "queryKey, queryFn">) => {
   // const queryClient = useQueryClient();
 
-  const response = useQuery<IBaseAllData<T>>({
+  const response = useQuery<IBaseAllData>({
     queryKey: [...queryKey],
     queryFn: () => CLIENT_API.getAll({ url, params }),
     staleTime: QUERY_DATA.stale_time,

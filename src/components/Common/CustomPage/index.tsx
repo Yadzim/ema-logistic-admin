@@ -7,11 +7,10 @@ import { FaSearch } from "react-icons/fa";
 import CustomViewModal from "./crud/viewModal";
 import CustomFormModal from "./crud/formModal";
 import { useDebounce, useGetAllData, useUrlQueryParams } from "hooks";
-import { isRoles, isTrue, numeration, objectToQueryString } from "utils";
+import { isRoles, isTrue, numeration } from "utils";
 import Actions from "components/Actions";
 import PageHeader from "components/PageHeader";
 import { CreateBtn } from "../CustomButton";
-import CustomFilterSelects from "../CustomFilterSelect";
 import { BadgeStatusTag } from "components/Status";
 import { Link } from "react-router-dom";
 import CustomPagination from "../CustomPagination";
@@ -27,7 +26,6 @@ const CustomPage: React.FC<CustomPagePropType> = ({
   table_size,
   search,
   formUIData,
-  selectData,
   onCreate,
   createLink,
   actions,
@@ -49,15 +47,11 @@ const CustomPage: React.FC<CustomPagePropType> = ({
       value.currentPage,
       value?.filter_like?.sort,
       searchVal,
-      ...(selectData?.data ?? [])?.map((e) => value.filter[e?.name]),
     ],
     url,
     params: {
-      // sort: value?.filter_like?.sort ? value?.filter_like?.sort : "-id",
       limit: value.perPage,
       page: value.currentPage,
-      // filter: objectToQueryString(value?.filter),
-      // filter_like: objectToQueryString(value?.filter_like),
     },
   });
 
@@ -163,7 +157,6 @@ const CustomPage: React.FC<CustomPagePropType> = ({
         btn={<div className="flex-end gap-3">{btn} <Link to={createLink ?? ""}><CreateBtn role={role.create} onClick={onCreate && !createLink ? onCreate : () => setOpen("form")} /></Link> </div>}
       />
       <div className="md:d-f gap-3">
-        {selectData ? <CustomFilterSelects {...selectData} /> : null}
         {search ? <Input
           className=""
           placeholder={`${("Search by name")}...`}

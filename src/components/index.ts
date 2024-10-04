@@ -1,12 +1,8 @@
-
 import Layout from "./Layout";
 import PageHeader from "./PageHeader";
 import Actions from "./Actions";
 
-import {CreateBtn} from "./Common/CustomButton"
-
-import CustomFilterSelects from "./Common/CustomFilterSelect";
-import FilterSelect from "./Common/CustomFilterSelect/FilterSelect";
+import { CreateBtn } from "./Common/CustomButton";
 
 import CustomFormUI from "./Common/CustomFormUI";
 
@@ -16,8 +12,14 @@ import CustomViewModal from "./Common/CustomPage/crud/viewModal";
 
 import CustomPagination from "./Common/CustomPagination";
 
-
-
-
-
-export default { Layout, PageHeader, Actions, CreateBtn, CustomPagination, FilterSelect, CustomFormUI, CustomFilterSelects, CustomPage, CustomFormModal, CustomViewModal }
+export default {
+  Layout,
+  PageHeader,
+  Actions,
+  CreateBtn,
+  CustomPagination,
+  CustomFormUI,
+  CustomPage,
+  CustomFormModal,
+  CustomViewModal,
+};

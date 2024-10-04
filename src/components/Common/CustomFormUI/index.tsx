@@ -5,7 +5,7 @@ import { generateAntdColSpan } from "utils";
 
 const { Item } = Form;
 
-const CustomFormUI: FC<{ data: TypeFormUIData[], form: FormInstance<any>, load?: boolean, isUpdate?: boolean }> = ({ data, form, load = true }): JSX.Element => {
+const CustomFormUI: FC<{ data: TypeFormUIData[], form: FormInstance<any>, load?: boolean, isUpdate?: boolean }> = ({ data }): JSX.Element => {
   return (
     <>
       {

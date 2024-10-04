@@ -1,5 +1,4 @@
 import { ColumnProps } from "antd/es/table";
-import { CustomFilterSelectsPropsType } from "../CustomFilterSelect";
 import { TypeFormUIData } from "../CustomFormUI/types";
 import { MenuItemType } from "antd/es/menu/interface";
 
@@ -33,7 +32,6 @@ export type CustomPagePropType = {
   isMain?: boolean;
   table_size?: "small" | "middle" | "large";
   formUIData?: TypeCustomPageFormUIData[];
-  selectData?: CustomFilterSelectsPropsType;
   btn?: React.ReactNode;
   actions?: {
     onView?: (e?: any) => void | string;

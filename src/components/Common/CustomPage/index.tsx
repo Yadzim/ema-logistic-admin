@@ -34,7 +34,7 @@ const CustomPage: React.FC<CustomPagePropType> = ({
   btn,
 }): JSX.Element => {
   // const { t } = useTranslation();
-  const { urlValue: value, writeToUrl } = useUrlQueryParams({ currentPage: 0, perPage: 15, });
+  const { urlValue: value, writeToUrl } = useUrlQueryParams({ currentPage: 1, perPage: 15, });
 
   const [open, setOpen] = useState<"view" | "form" | undefined>();
   const [allData, setAllData] = useState<any[]>([]);
@@ -55,15 +55,15 @@ const CustomPage: React.FC<CustomPagePropType> = ({
     params: {
       // sort: value?.filter_like?.sort ? value?.filter_like?.sort : "-id",
       limit: value.perPage,
-      offset: value.currentPage,
-      filter: objectToQueryString(value?.filter),
-      filter_like: objectToQueryString(value?.filter_like),
+      page: value.currentPage,
+      // filter: objectToQueryString(value?.filter),
+      // filter_like: objectToQueryString(value?.filter_like),
     },
   });
 
 
   useEffect(() => {
-    isTrue(data?.length) && setAllData(data);
+    isTrue(data?.length) && setAllData(data?.messages ?? []);
   }, [data]);
 
   const columns: ColumnsType<any> = React.useMemo(
@@ -205,7 +205,7 @@ const CustomPage: React.FC<CustomPagePropType> = ({
 
         <Table
           columns={columns}
-          dataSource={data?.length ? data : allData}
+          dataSource={data?.messages?.length ? data?.messages : allData}
           // bordered
           pagination={false}
           loading={isLoading}

@@ -39,10 +39,10 @@ export class ResponseError {
 
   private 400(): void {
     // if (
-      // JSON.parse(this.error?.request?.response)?.hasOwnProperty("detail") &&
-      // typeof JSON.parse(this.error?.request?.response)?.detail === "string"
+    // JSON.parse(this.error?.request?.response)?.hasOwnProperty("detail") &&
+    // typeof JSON.parse(this.error?.request?.response)?.detail === "string"
     // ) {
-      // message.error(JSON.parse(this.error?.request?.response)?.detail);
+    // message.error(JSON.parse(this.error?.request?.response)?.detail);
     // }
   }
 
@@ -53,6 +53,7 @@ export class ResponseError {
 
   private 403(): void {
     // createBrowserHistory().push('/signin')
+    redirect("/");
   }
 
   private 404(): void {}

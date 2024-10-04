@@ -23,10 +23,8 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
     useEffect(() => {
         if (selectedItem) {
             form.setFieldsValue({
-                title: selectedItem?.title,
-                author: selectedItem?.author,
-                description: selectedItem?.description,
-                year: selectedItem?.year,
+                client: selectedItem?.client,
+                job: selectedItem?.job,
 
             })
         }
@@ -37,7 +35,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
     }, [open])
 
     const { mutate, isPending } = useMutation({
-        mutationFn: (newVals) => submitData(selectedItem?._id, newVals, fetchedFile?.key, fetchedPoster?.key),
+        mutationFn: (newVals) => submitData(selectedItem?._id, newVals, fetchedFile?.filename, fetchedPoster?.filename),
         onSuccess: async (res) => {
             Notification("success", "update", res?.message)
             refetch()
@@ -112,7 +110,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                     <div className={`flex items-center- justify-between gap-2 my-2 py-3 px-2 border border-solid ${fetchedFile ? "border-green-400" : "border-gray-600/0 bg-gray-50"} rounded-md`}>
                         {
                             fetchedFile ? <video width="480" height="360" controls className="rounded-lg mx-auto">
-                                <source src={FILE_URL + fetchedFile?.key} type="video/mp4" />
+                                <source src={FILE_URL + fetchedFile?.filename} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                                 : <div>
@@ -142,7 +140,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                     <Form.Item
                         label="Post rasmi (png, jpeg)"
                         name="poster"
-                        rules={[{ required: true, message: 'Please input poster!' }]}
+                    // rules={[{ required: true, message: 'Please input poster!' }]}
                     >
                         {selectedItem?.poster ? <img className='w-1/2 mxc-auto rounded-lg' src={FILE_URL + selectedItem?.poster} alt="" /> : null}
                         <CustomFileUpload title="rasm yuklang" formats='.png, .jpeg' accept='.png, .jpeg' onChange={(e: any) => { setPoster(e.target.files?.length && e.target.files[0]); _sendImage({ id: "bookfile" }) }} />

@@ -16,11 +16,8 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
     useEffect(() => {
         if (selectedItem) {
             form.setFieldsValue({
-                title: selectedItem?.title,
-                author: selectedItem?.author,
+                name: selectedItem?.name,
                 description: selectedItem?.description,
-                year: selectedItem?.year,
-
             })
         }
     }, [selectedItem])
@@ -30,7 +27,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
     }, [open])
 
     const { mutate, isPending } = useMutation({
-        mutationFn: (newVals) => submitData(selectedItem?._id, newVals, fetchedFile?.key),
+        mutationFn: (newVals) => submitData(selectedItem?._id, newVals, fetchedFile?.filename),
         onSuccess: async (res) => {
             Notification("success", "update", res?.message)
             refetch()
@@ -50,7 +47,8 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
         onSuccess: async (res) => {
             Notification("success", "update", res?.message)
             // if (res?._id) {
-            setFetchedFile(fetchedFile ? undefined : res)
+            // setFetchedFile(fetchedFile ? undefined : res)
+            setFetchedFile(res)
             setFile(undefined);
             // }
         },
@@ -64,6 +62,11 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
         setFetchedFile(undefined)
         setFile(undefined);
     }
+
+    console.log(fetchedFile);
+    console.log(file);
+
+
 
     return (
         <div>
@@ -99,7 +102,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                     <div className={`flex items-center justify-between my-2 py-3 px-2 border border-solid ${fetchedFile ? "border-green-400" : "border-gray-600/0 bg-gray-50"} rounded-md`}>
                         {
                             fetchedFile ?
-                                <img className='w-2/3 rounded-lg' src={FILE_URL + fetchedFile?.key} alt="product" />
+                                <img className='w-2/3 rounded-lg' src={FILE_URL + fetchedFile?.filename} alt="product" />
                                 : <div>
                                     <label htmlFor="file"><div className="border border-dashed border-gray-300 hover:border-orange-400 rounded-lg flex-center py-1 px-12 w-full"><FaUpload className='text-gray-500' /> &nbsp; Rasmni bu yerga yuklang</div></label>
                                     <input type="file" id='file' className='hidden' style={{ display: 'none' }} onChange={(e) => { e?.target?.files ? setFile(e?.target?.files[0]) : message.warning("Fayl yuklanmadi") }} />
@@ -120,7 +123,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                     <br />
                     <Form.Item
                         label="Xizmat nomi"
-                        name="title"
+                        name="name"
                         rules={[{ required: true, message: 'Please input name!' }]}
                     >
                         <Input placeholder="Nomi" size='large' />

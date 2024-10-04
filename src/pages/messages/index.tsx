@@ -8,17 +8,20 @@ const formUIData: TypeCustomPageFormUIData[] = [
     label: "To'liq ismi",
     name: "fullName",
     required: true,
+    span: 24
   },
   {
     type: "input",
     label: "Telefon raqami",
     name: "phone",
+    span: 24
   },
   {
     type: "input",
     label: "Xabar matni",
     name: "text",
     tableRender: e => <div className="line-clamp-3">{e?.text}</div>,
+    span: 24
   },
 ]
 

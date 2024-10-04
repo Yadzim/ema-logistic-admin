@@ -27,12 +27,12 @@ const Services: React.FC = (): JSX.Element => {
 
       <Spin spinning={isLoading} >
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
 
           {
-            data ? data?.map((item) => {
+            data?.services?.length ? data?.services?.map((item: any) => {
 
-              return <div key={item.id} className="card p-0 flex flex-col gap-2 border bg-gray-50" >
+              return <div key={item.id} className="card p-0 flex flex-between flex-col gap-2 border bg-gray-50" >
                 <div className="">
                   <figure className="w-full h-[160px] flex-center overflow-hidden img-box rounded-md">
                     <img src={FILE_URL + item.image} alt='' width={285} height={163} className='min-w-full min-h-full bg-gray-100 object-cover rounded' />
@@ -42,19 +42,22 @@ const Services: React.FC = (): JSX.Element => {
                     <p className='text-info'>{item.description ?? "If a dog chews shoes whose shoes does he choose? Lorem, ipsum dolor sit amet consectetur adipisicing elit."}</p>
                   </div>
                 </div>
-                <Divider className='my-0' />
-                <div className="pb-2">
-                  <Actions
-                    id={item.id}
-                    url='services'
-                    refetch={refetch}
-                    deleteRoles={"*"}
-                    editRoles={"*"}
-                    viewRoles={"*"}
-                    onEdit={() => { setOpen(true); setSelectedItem(item) }}
-                    onView={() => { setViewOpen(true); setSelectedItem(item) }}
-                    block
-                  />
+
+                <div className="w-full">
+                  <Divider className='my-0 w-full' />
+                  <div className="py-2">
+                    <Actions
+                      id={item._id}
+                      url='services'
+                      refetch={refetch}
+                      deleteRoles={"*"}
+                      editRoles={"*"}
+                      viewRoles={"*"}
+                      onEdit={() => { setOpen(true); setSelectedItem(item) }}
+                      onView={() => { setViewOpen(true); setSelectedItem(item) }}
+                      block
+                    />
+                  </div>
                 </div>
 
               </div>
@@ -68,7 +71,7 @@ const Services: React.FC = (): JSX.Element => {
 
       </Spin>
 
-      <UpdateData open={open} refetch={() => { }} setOpen={setOpen} selectedItem={selectedItem} setselectedItem={setSelectedItem} />
+      <UpdateData open={open} refetch={refetch} setOpen={setOpen} selectedItem={selectedItem} setselectedItem={setSelectedItem} />
       <VieWData open={viewOpen} setOpen={setViewOpen} selectedItem={selectedItem} setselectedItem={setSelectedItem} />
     </div>
   );

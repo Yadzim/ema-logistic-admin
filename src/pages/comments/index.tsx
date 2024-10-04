@@ -16,8 +16,8 @@ const Comments: React.FC = (): JSX.Element => {
   const [selectedItem, setSelectedItem] = useState();
 
   const { data, isLoading, refetch } = useGetAllData({
-    queryKey: ['services'],
-    url: 'services',
+    queryKey: ['comments'],
+    url: 'comments',
   })
 
   return (
@@ -28,12 +28,12 @@ const Comments: React.FC = (): JSX.Element => {
 
       <Spin spinning={isLoading} >
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
 
           {
-            data ? data?.map((item) => {
+            data?.comments?.length ? data?.comments?.map((item: any) => {
 
-              return <div key={item.id} className="card p-0 flex flex-col gap-2 border bg-gray-50" >
+              return <div key={item.id} className="card p-0 flex justify-between flex-col gap-2 border bg-gray-50" >
                 <div className="">
                   <figure className="w-full h-[320px] flex-center overflow-hidden img-box rounded-md relative">
                     <img src={FILE_URL + item?.poster} alt='' width={285} height={320} className='min-w-full min-h-full bg-gray-100 object-cover rounded' />
@@ -52,20 +52,24 @@ const Comments: React.FC = (): JSX.Element => {
                     <FaQuoteRight className="fas fa-quote-right text-4xl md:text-5xl opacity-10" />
                   </div>
                 </div>
-                <Divider className='my-0' />
-                <div className="pb-2">
-                  <Actions
-                    id={item?.id}
-                    url='services'
-                    refetch={refetch}
-                    deleteRoles={"*"}
-                    editRoles={"*"}
-                    viewRoles={"*"}
-                    onEdit={() => { setOpen(true); setSelectedItem(item) }}
-                    onView={() => { setViewOpen(true); setSelectedItem(item) }}
-                    block
-                  />
+
+                <div className="w-full">
+                  <Divider className='my-0' />
+                  <div className="py-2">
+                    <Actions
+                      id={item?.id}
+                      url='services'
+                      refetch={refetch}
+                      deleteRoles={"*"}
+                      editRoles={"*"}
+                      viewRoles={"*"}
+                      onEdit={() => { setOpen(true); setSelectedItem(item) }}
+                      onView={() => { setViewOpen(true); setSelectedItem(item) }}
+                      block
+                    />
+                  </div>
                 </div>
+
               </div>
 
             })
@@ -80,7 +84,7 @@ const Comments: React.FC = (): JSX.Element => {
 
       </Spin>
 
-      <UpdateData open={open} refetch={() => { }} setOpen={setOpen} selectedItem={selectedItem} setselectedItem={setSelectedItem} />
+      <UpdateData open={open} refetch={refetch} setOpen={setOpen} selectedItem={selectedItem} setselectedItem={setSelectedItem} />
       <VieWData open={viewOpen} setOpen={setViewOpen} selectedItem={selectedItem} setselectedItem={setSelectedItem} />
     </div>
   );

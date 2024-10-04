@@ -12,7 +12,7 @@ export interface IAuth {
 export const initialStateAuth: IAuth = {
   isLoading: false,
   status: "success",
-  isAuthenticated: true,
+  isAuthenticated: false,
   user: null,
 };
 

@@ -6,7 +6,7 @@ import instanceFile from "config/axios.config/file";
 export const submitData = async (id: number | string | undefined, values: any, video: any, poster: any) => {
 
 
-    const options = id ? { url: `comments/${id}`, method: "PATCH", data: { ...values, video, poster } }
+    const options = id ? { url: `comments/${id}`, method: "PUT", data: { ...values, video, poster } }
         : { url: `comments`, method: "POST", data: { ...values, video, poster } };
 
     const response = await instance(options);
@@ -23,11 +23,11 @@ export const sendImage = async (file: any, id?: string) => {
 
 
     const data = new FormData();
-    data.append("files", file)
+    data.append("file", file)
 
     const options = id ? { url: `files/${id}`, method: "DELETE" } : { url: 'files/upload', method: "POST", data }
 
     const response = await instanceFile(options);
 
-    return response.data && Array.isArray(response.data) && response.data[0];
+    return response.data?.data;
 }

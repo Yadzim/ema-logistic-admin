@@ -31,7 +31,7 @@ const Login = () => {
                             form={form}
                         >
                             <Form.Item
-                                name="username"
+                                name="login"
                                 rules={[{ required: true, message: 'Please input your username!' }]}
                                 label="Foydalanuvchi nomi"
                             >

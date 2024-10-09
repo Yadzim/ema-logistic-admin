@@ -8,7 +8,7 @@ const AdminDashboard: React.FC = (): JSX.Element => {
 
   const { data } = useGetAllData({
     queryKey: ['messages'],
-    url: 'messages?limit=5',
+    url: 'messages?limit=5&sort=-_id',
   })
 
   return (

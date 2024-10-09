@@ -40,7 +40,7 @@ const CustomPage: React.FC<CustomPagePropType> = ({
 
   const searchVal = useDebounce(value?.filter_like?.q, 500);
 
-  const { data, total, refetch, isLoading } = useGetAllData({
+  const { data, refetch, isLoading } = useGetAllData({
     queryKey: [
       queryKey ?? url,
       value.perPage,
@@ -207,9 +207,9 @@ const CustomPage: React.FC<CustomPagePropType> = ({
           rowClassName="py-[12px]"
           scroll={{ x: 576 }}
         />
-        {(total ?? 0) > 10 ? (
+        {(data?.totalCount ?? 0) > 10 ? (
           <CustomPagination
-            totalCount={total}
+            totalCount={data?.totalCount}
             currentPage={value.currentPage}
             perPage={value.perPage}
           />

@@ -16,7 +16,7 @@ const pageSizeOptions = ["10", "15", "20", "30", "50", "100"];
 const CustomPagination: React.FC<TypeCustomPaginationProps> = React.memo(
   ({
     totalCount = 0,
-    currentPage = 0,
+    currentPage = 1,
     perPage = 15,
     isAll = false,
     showSizeChanger = true,
@@ -32,10 +32,10 @@ const CustomPagination: React.FC<TypeCustomPaginationProps> = React.memo(
         {/* </Tag> */}
         <Pagination
           total={totalCount}
-          current={(currentPage ?? value.currentPage) + 1}
+          current={currentPage ?? value.currentPage}
           defaultPageSize={perPage ?? value.perPage}
           onChange={(e) => {
-            writeToUrl({ name: "currentPage", value: (e - 1) });
+            writeToUrl({ name: "currentPage", value: e });
           }}
           onShowSizeChange={(e, pageSize) => {
             console.log(e);

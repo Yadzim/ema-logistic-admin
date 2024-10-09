@@ -105,7 +105,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                                 <img className='w-2/3 rounded-lg' src={FILE_URL + fetchedFile?.filename} alt="product" />
                                 : <div>
                                     <label htmlFor="file"><div className="border border-dashed border-gray-300 hover:border-orange-400 rounded-lg flex-center py-1 px-12 w-full"><FaUpload className='text-gray-500' /> &nbsp; Rasmni bu yerga yuklang</div></label>
-                                    <input type="file" id='file' className='hidden' style={{ display: 'none' }} onChange={(e) => { e?.target?.files ? setFile(e?.target?.files[0]) : message.warning("Fayl yuklanmadi") }} />
+                                    <input type="file" id='file' accept='image/*' className='hidden' style={{ display: 'none' }} onChange={(e) => { e?.target?.files ? setFile(e?.target?.files[0]) : message.warning("Fayl yuklanmadi") }} />
                                     {file ? <p className='text-sm text-gray-500'>{file?.name}</p> : null}
                                 </div>
                         }

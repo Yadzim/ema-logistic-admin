@@ -77,7 +77,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
             <Modal
                 key={3}
                 open={open}
-                title={"Mijoz fikri" + (selectedItem ? " tahrirlash" : " qo'shish")}
+                title={"Mijoz fikrini" + (selectedItem ? " tahrirlash" : " qo'shish")}
                 width={600}
                 onCancel={() => {
                     // if (fetchedFile) { _sendImage({ id: fetchedFile?._id }) };
@@ -101,7 +101,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                         className='mb-4'
                     />
                     {
-                        selectedItem && !fetchedFile ? <video width="480" height="360" controls className="rounded-lg mx-auto">
+                        selectedItem && !fetchedFile ? <video width="480" height="360" controls className="rounded-lg mx-auto max-w-[75%] max-h-96">
                             <source src={FILE_URL + selectedItem?.video} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -109,7 +109,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                     }
                     <div className={`flex items-center- justify-between gap-2 my-2 py-3 px-2 border border-solid ${fetchedFile ? "border-green-400" : "border-gray-600/0 bg-gray-50"} rounded-md`}>
                         {
-                            fetchedFile ? <video width="480" height="360" controls className="rounded-lg mx-auto">
+                            fetchedFile ? <video width="480" height="360" controls className="rounded-lg mx-auto max-w-[75%] max-h-80">
                                 <source src={FILE_URL + fetchedFile?.filename} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
@@ -142,7 +142,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
                         name="poster"
                     // rules={[{ required: true, message: 'Please input poster!' }]}
                     >
-                        {selectedItem?.poster ? <img className='w-1/2 mxc-auto rounded-lg' src={FILE_URL + selectedItem?.poster} alt="" /> : null}
+                        {selectedItem?.poster ? <img className='w-1/2 mx-auto rounded-lg mb-2' src={FILE_URL + selectedItem?.poster} alt="" /> : null}
                         <CustomFileUpload title="rasm yuklang" formats='.png, .jpeg' accept='.png, .jpeg' onChange={(e: any) => { setPoster(e.target.files?.length && e.target.files[0]); _sendImage({ id: "bookfile" }) }} />
                     </Form.Item>
                     <Form.Item className='flex justify-end'>

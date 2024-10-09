@@ -22,7 +22,7 @@ const Comments: React.FC = (): JSX.Element => {
 
   return (
     <div className="card ">
-      <PageHeader title='Xizmatlar'
+      <PageHeader title='Mijozlar fikri'
         btn={<CreateBtn onClick={() => setOpen(true)} />}
       />
 
@@ -35,7 +35,7 @@ const Comments: React.FC = (): JSX.Element => {
 
               return <div key={item.id} className="card p-0 flex justify-between flex-col gap-2 border bg-gray-50" >
                 <div className="">
-                  <figure className="w-full h-[320px] flex-center overflow-hidden img-box rounded-md relative">
+                  <figure className="w-full h-[320px] flex-center overflow-hidden img-box rounded-md relative cursor-pointer" onClick={() => { setViewOpen(true); setSelectedItem(item) }}>
                     <img src={FILE_URL + item?.poster} alt='' width={285} height={320} className='min-w-full min-h-full bg-gray-100 object-cover rounded' />
                     <div className="absolute shadow-xl rounded-full bg-white w-16 h-16 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex-center">
                       <FaPlay className="fas fa-play text-4xl text-black/70 ms-1" />
@@ -45,8 +45,8 @@ const Comments: React.FC = (): JSX.Element => {
                     <div className="d-f gap-3">
                       <FaCircleUser className="fa fa-user-circle text-5xl opacity-30" />
                       <div>
-                        <h6 className="text-lg font-semibold">{item?.client ?? "John Doe"}</h6>
-                        <span className="text-info text-sm">{item?.job ?? "Web Developer"}</span>
+                        <h6 className="text-lg font-semibold">{item?.client}</h6>
+                        <span className="text-info text-sm">{item?.job}</span>
                       </div>
                     </div>
                     <FaQuoteRight className="fas fa-quote-right text-4xl md:text-5xl opacity-10" />

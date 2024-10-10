@@ -71,7 +71,6 @@ const Comments: React.FC = (): JSX.Element => {
                 </div>
 
               </div>
-
             })
 
               : <div className="col-span-4 flex-center py-12"><Empty description="Xizmatlar topilmadi" /></div>

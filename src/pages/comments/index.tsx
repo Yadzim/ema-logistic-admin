@@ -57,7 +57,7 @@ const Comments: React.FC = (): JSX.Element => {
                   <Divider className='my-0' />
                   <div className="py-2">
                     <Actions
-                      id={item?.id}
+                      id={item?._id}
                       url='comments'
                       refetch={refetch}
                       deleteRoles={"*"}

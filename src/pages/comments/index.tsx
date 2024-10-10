@@ -58,7 +58,7 @@ const Comments: React.FC = (): JSX.Element => {
                   <div className="py-2">
                     <Actions
                       id={item?.id}
-                      url='services'
+                      url='comments'
                       refetch={refetch}
                       deleteRoles={"*"}
                       editRoles={"*"}

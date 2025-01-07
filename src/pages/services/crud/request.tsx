@@ -3,10 +3,10 @@ import instance from "config/axios.config";
 import instanceFile from "config/axios.config/file";
 
 
-export const submitData = async (id: number | string | undefined, values: any, image: any) => {
+export const submitData = async (id: number | string | undefined, values: any, video: any, image: any) => {
 
-    const options = id ? { url: `services/${id}`, method: "PUT", data: { ...values, image } }
-        : { url: `services`, method: "POST", data: { ...values, image } };
+    const options = id ? { url: `services/${id}`, method: "PUT", data: { ...values, video, image } }
+        : { url: `services`, method: "POST", data: { ...values, video, image } };
 
     const response = await instance(options);
 

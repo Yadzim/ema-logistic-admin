@@ -27,7 +27,7 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
     }, [open])
 
     const { mutate, isPending } = useMutation({
-        mutationFn: (newVals) => submitData(selectedItem?._id, newVals, fetchedFile?.filename),
+        mutationFn: (newVals) => submitData(selectedItem?._id, newVals, fetchedFile?.filename, ""),
         onSuccess: async (res) => {
             Notification("success", "update", res?.message)
             refetch()

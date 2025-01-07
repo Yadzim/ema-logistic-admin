@@ -4,9 +4,9 @@ import { CreateBtn } from 'components/Common/CustomButton';
 import PageHeader from 'components/PageHeader';
 import { useGetAllData } from 'hooks';
 import React, { useState } from 'react';
-import UpdateData from './crud/update';
 import VieWData from './crud/view';
 import { FILE_URL } from 'config/utils';
+import UpdateData from './crud/update_v2';
 
 const Services: React.FC = (): JSX.Element => {
 

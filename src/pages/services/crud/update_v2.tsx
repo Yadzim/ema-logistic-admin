@@ -16,10 +16,6 @@ const UpdateData = ({ open, setOpen, refetch, selectedItem, setselectedItem }: {
   const [fetchedPoster, setFetchPoster] = useState<any>();
   const [form] = Form.useForm();
 
-  const onClose = () => {
-    setOpen(false);
-  };
-
   useEffect(() => {
     if (selectedItem) {
       form.setFieldsValue({
